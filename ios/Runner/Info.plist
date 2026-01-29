@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Fitness Timer syncs workout duration and calories to Apple Health so you can track your activity.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Fitness Timer writes workout and active energy data to Apple Health.</string>
 </dict>
 </plist>

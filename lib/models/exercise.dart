@@ -31,17 +31,17 @@ class Exercise {
   final String name;
   final ExerciseWorkType workType;
   final int workValue;
-  final TimeUnit workUnit; // 仅当 workType==time 时有意义；默认 s
-  final int workSeconds; // 计时用（统一换算成秒）
+  final TimeUnit workUnit; // Only meaningful when workType == time; defaults to seconds
+  final int workSeconds; // Cached duration in seconds for timing
   final int sets;
-  // 组内休息（同一动作每组之间）
+  // Rest between sets (within the same exercise)
   final int intraRestValue;
-  final TimeUnit intraRestUnit; // 默认 s
-  final int intraRestSeconds; // 计时用（统一换算成秒）
-  // 组间休息（不同动作之间）
+  final TimeUnit intraRestUnit; // Defaults to seconds
+  final int intraRestSeconds; // Cached duration in seconds
+  // Rest between different exercises
   final int interRestValue;
-  final TimeUnit interRestUnit; // 默认 s
-  final int interRestSeconds; // 计时用（统一换算成秒）
+  final TimeUnit interRestUnit; // Defaults to seconds
+  final int interRestSeconds; // Cached duration in seconds
 
   const Exercise({
     required this.id,
@@ -94,20 +94,20 @@ class Exercise {
   String get displaySummary {
     final workText = workType == ExerciseWorkType.time
         ? '$workValue ${workUnit == TimeUnit.s ? 's' : 'min'}'
-        : '$workValue 次';
+        : '$workValue reps';
     final parts = <String>[];
     final safeSets = sets <= 0 ? 1 : sets;
-    parts.add('$workText × $safeSets 组');
+    parts.add('$workText × $safeSets sets');
 
     if (intraRestValue > 0 && safeSets > 1) {
       final intraText =
           '$intraRestValue${intraRestUnit == TimeUnit.s ? 's' : 'min'}';
-      parts.add('组内休息 $intraText');
+      parts.add('Rest between sets $intraText');
     }
     if (interRestValue > 0) {
       final interText =
           '$interRestValue${interRestUnit == TimeUnit.s ? 's' : 'min'}';
-      parts.add('组间休息 $interText');
+      parts.add('Rest between exercises $interText');
     }
     return parts.join('，');
   }

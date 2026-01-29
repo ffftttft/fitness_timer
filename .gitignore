@@ -6,3 +6,28 @@ build/
 .idea/
 .vscode/
 *.iml
+
+# Logs
+*.log
+*.stacktrace
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Android (local machine / caches)
+android/.gradle/
+android/local.properties
+**/local.properties
+
+# iOS/macOS (user-specific)
+**/*.xcuserstate
+**/xcuserdata/
+
+# Node / HarmonyOS (OHOS) dependencies & caches
+**/node_modules/
+ohos/oh_modules/
+**/.npm/
+**/.pnpm-store/
+**/.yarn/
