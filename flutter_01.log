@@ -1,0 +1,108 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter build hap
+
+## exception
+
+ProcessException: ProcessException: The command failed with exit code 1
+  Command: hvigorw assembleHap -p product=default -p buildMode=release --no-daemon -p FLUTTER_TARGET=lib\main.dart -p TARGET_PLATFORM=ohos-arm64 -p DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuMzUuOC1vaG9zLTAuMC4xLWNhbmFyeTE=,RkxVVFRFUl9DSEFOTkVMPVt1c2VyLWJyYW5jaF0=,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0Y29kZS5jb20vb3Blbmhhcm1vbnktdHBjL2ZsdXR0ZXJfZmx1dHRlci5naXQ=,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049NTkxMWE4ZmRhNA==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049MDM1MzE2NTY1YQ==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My45LjI= -p DART_OBFUSCATION=false -p TRACK_WIDGET_CREATION=true -p TREE_SHAKE_ICONS=true -p PACKAGE_CONFIG=C:\Users\Administrator\Desktop\test\fitness_timer_app\.dart_tool\package_config.json
+
+```
+#0      RunResult.throwException (package:flutter_tools/src/base/process.dart:118:5)
+#1      _DefaultProcessUtils.runSync (package:flutter_tools/src/base/process.dart:488:17)
+#2      hvigorwTask (package:flutter_tools/src/ohos/hvigor.dart:138:41)
+#3      assembleHap (package:flutter_tools/src/ohos/hvigor.dart:162:10)
+#4      OhosHvigorBuilder.buildHap (package:flutter_tools/src/ohos/hvigor.dart:422:33)
+<asynchronous suspension>
+#5      BuildHapCommand.runCommand (package:flutter_tools/src/commands/build_hap.dart:88:5)
+<asynchronous suspension>
+#6      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1581:27)
+<asynchronous suspension>
+#7      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#8      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#9      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:497:9)
+<asynchronous suspension>
+#10     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#11     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:432:5)
+<asynchronous suspension>
+#12     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:98:11)
+<asynchronous suspension>
+#13     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#14     main (package:flutter_tools/executable.dart:101:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[33m[!][39m Flutter (Channel [user-branch], 3.35.8-ohos-0.0.1-canary1, on Microsoft Windows [版本 10.0.19044.3155], locale zh-CN) [3.1s]
+    [33m![39m Flutter version 3.35.8-ohos-0.0.1-canary1 on channel [user-branch] at
+      D:\huawei\flutter_sdk\flutter_sdk_3.35\flutter_flutter
+      Currently on an unknown channel. Run `flutter channel` to switch to an official channel.
+      If that doesn't fix the issue, reinstall Flutter by following instructions at https://flutter.dev/setup.
+    [33m![39m Upstream repository https://gitcode.com/openharmony-tpc/flutter_flutter.git is not a standard remote.
+      Set environment variable "FLUTTER_GIT_URL" to https://gitcode.com/openharmony-tpc/flutter_flutter.git to dismiss this
+      error.
+    [32m•[39m Framework revision 5911a8fda4 (12 days ago), 2026-01-16 10:29:48 +0800
+    [32m•[39m Engine revision 035316565a
+    [32m•[39m Dart version 3.9.2
+    [32m•[39m DevTools version 2.48.0
+    [32m•[39m Pub download mirror https://pub.flutter-io.cn
+    [32m•[39m Flutter download mirror https://storage.flutter-io.cn
+    [32m•[39m Feature flags: enable-ohos, enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop,
+      enable-android, enable-ios, cli-animations, enable-native-assets, enable-lldb-debugging
+    [32m•[39m If those were intentional, you can disregard the above warnings; however it is recommended to use "git" directly to
+      perform update checks and upgrades.
+
+[32m[✓][39m HarmonyOS toolchain - develop for HarmonyOS devices
+    [32m•[39m OpenHarmony Sdk at D:\app\DevEco_Studio\sdk, available api versions has [21:default]
+    [32m•[39m Ohpm version 6.0.1
+    [32m•[39m Node version v18.20.1
+    [32m•[39m Hvigorw binary at D:\app\DevEco_Studio\tools\hvigor\bin\hvigorw
+
+[32m[✓][39m Windows Version (10 IoT 企业版 LTSC 64 位, 21H2, 2009) [11.5s]
+
+[32m[✓][39m Android toolchain - develop for Android devices (Android SDK version 36.1.0) [9.8s]
+    [32m•[39m Android SDK at C:\Users\Administrator\AppData\Local\Android\Sdk
+    [32m•[39m Emulator version 36.2.12.0 (build_id 14214601) (CL:N/A)
+    [32m•[39m Platform android-36, build-tools 36.1.0
+    [32m•[39m Java binary at: C:\Program Files\Microsoft\jdk-17.0.10.7-hotspot\bin\java
+      This JDK is specified in your Flutter configuration.
+      To change the current JDK, run: `flutter config --jdk-dir="path/to/jdk"`.
+    [32m•[39m Java version OpenJDK Runtime Environment Temurin-17.0.17+10 (build 17.0.17+10)
+    [32m•[39m All Android licenses accepted.
+
+[32m[✓][39m Chrome - develop for the web [1,997ms]
+    [32m•[39m Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[32m[✓][39m Visual Studio - develop Windows apps (Visual Studio 生成工具 2026 18.1.1) [1,995ms]
+    [32m•[39m Visual Studio at E:\vs
+    [32m•[39m Visual Studio 生成工具 2026 version 18.1.11312.151
+    [32m•[39m Windows 10 SDK version 10.0.26100.0
+
+[32m[✓][39m Android Studio (version 2025.2.2) [10ms]
+    [32m•[39m Android Studio at D:\app\Android
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+
+[32m[✓][39m Connected device (4 available) [2.8s]
+    [32m•[39m V2405A (mobile)   • 10AEAB44PX000TN • android-arm64  • Android 16 (API 36)
+    [32m•[39m Windows (desktop) • windows         • windows-x64    • Microsoft Windows [版本 10.0.19044.3155]
+    [32m•[39m Chrome (web)      • chrome          • web-javascript • Google Chrome 144.0.7559.97
+    [32m•[39m Edge (web)        • edge            • web-javascript • Microsoft Edge 144.0.3719.82
+
+[32m[✓][39m Network resources [533ms]
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 1 category.
+```
