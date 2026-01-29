@@ -3,6 +3,8 @@ import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 
+import '../core/services/audio_session_service.dart';
+
 enum AppTone {
   soft,
   pop,
@@ -18,8 +20,9 @@ class TonePlayer {
   final AudioPlayer _player = AudioPlayer();
 
   Future<void> play(AppTone tone) async {
+    await AudioSessionService.instance.prepareForPlayback();
     final wav = _buildToneWav(tone);
-    // BytesSource: 离线、无资源文件依赖，保证有声音（播放器可用时）
+    // BytesSource: offline, no asset files; ensures sound when player is available
     await _player.stop();
     await _player.play(BytesSource(wav), volume: 1.0);
   }
@@ -82,7 +85,7 @@ class TonePlayer {
     required int ms,
   }) {
     final n = max(1, (sampleRate * ms / 1000).round());
-    // 轻量“消息提示”风格：短促、不过载。振幅设置为 0.25
+    // Lightweight notification-style beep: short and not too loud
     const amp = 0.25;
     final out = List<int>.filled(n, 0);
     for (var i = 0; i < n; i++) {
